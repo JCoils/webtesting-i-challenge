@@ -6,11 +6,16 @@ module.exports = {
 };
 
 function succeed(item) {
-  return { ...item };
+  return { 
+    ...item,
+    enhancement: item.enhancement < 20 ? item.enhancement + 1 : 20
+  };
 }
 
 function fail(item) {
-  return { ...item };
+  return { ...item,
+
+   };
 }
 
 function repair(item) {
