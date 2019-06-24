@@ -7,10 +7,10 @@ describe('enhancer.js', () => {
 
         describe('succeed()', () =>{
             it('Should increase the enhancement by 1 if less than 20', () => {
-                const item = {
-                    durability: 100,
-                    enhancement: 3
-                };
+                // const item = {
+                //     durability: 120,
+                //     enhancement: 6
+                // };
                 expect(enhancer.succeed({enhancement: 15}).enhancement).toBe(16);
             });
 
@@ -27,7 +27,23 @@ describe('enhancer.js', () => {
         });
     });
 
-    
+    describe('repair()', () => {
+        it('restores durability to 100', () => {
+            // const item = {
+            //     durability: 140,
+            //     enhancement: 6
+            // };
+
+            expect(enhancer.repair({ durability: 78 }).durability).toBe(100)
+            expect(enhancer.repair({ durability: 76 }).durability).toBe(100)
+            expect(enhancer.repair({ durability: 77 }).durability).toBe(100)
+            expect(enhancer.repair({ durability: 1000 }).durability).toBe(100)
+            expect(enhancer.repair({ durability: 374568480 }).durability).toBe(100)
+            expect(enhancer.repair({ durability: -7 }).durability).toBe(100)
+            expect(enhancer.repair({ durability: 777 }).durability).toBe(100)
+        });
+    });
+
 });
 
 
